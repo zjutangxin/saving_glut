@@ -1,0 +1,180 @@
+% Article Format: American Economic Review
+% Xin Tang @ Stony Brook University
+% Last Updated: August 2014
+\documentclass[twoside,11pt,leqno]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                    Text Layout                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Page Layout
+\usepackage[hmargin={1.2in,1.2in},vmargin={1.5in,1.5in}]{geometry}
+\topmargin -1cm        % read Lamport p.163
+\oddsidemargin 0.04cm   % read Lamport p.163
+\evensidemargin 0.04cm  % same as oddsidemargin but for left-hand pages
+\textwidth 16.59cm
+\textheight 21.94cm
+\renewcommand\baselinestretch{1.15}
+\parskip 0.25em
+\parindent 1em
+\linespread{1}
+
+% Set header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[LE,RO]{\thepage}
+%\fancyhead[CE]{\textit{JI QI, XIN TANG AND XICAN XI}}
+%\fancyhead[CO]{\textit{THE SIZE DISTRIBUTION OF FIRMS AND INDUSTRIAL POLLUTION}}
+\cfoot{}
+\renewcommand{\headrulewidth}{0pt}
+%\renewcommand*\footnoterule{}
+%\setcounter{page}{1}
+
+% Font
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\sfdefault}{phv}
+%\usepackage[lite]{mtpro2}
+% use Palatinho-Roman as default font family
+%\renewcommand{\rmdefault}{ppl}
+\usepackage[scaled=0.88]{helvet}
+\makeatletter   % Roman Numbers
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+\usepackage{CJK}
+
+% Section Titles
+\renewcommand\thesection{\textnormal{\textbf{\Roman{section}.}}}
+\renewcommand\thesubsection{\textnormal{\Alph{subsection}.}}
+\usepackage{titlesec}
+\titleformat*{\section}{\bf \center}
+\titleformat*{\subsection}{\it \center}
+\renewcommand{\refname}{\textnormal{REFERENCES}}
+
+% Appendix
+\usepackage[title]{appendix}
+\renewcommand{\appendixname}{APPENDIX}
+
+% Citations
+\usepackage[authoryear,comma]{natbib}
+\renewcommand{\bibfont}{\small}
+\setlength{\bibsep}{0em}
+\usepackage[%dvipdfmx,%
+            bookmarks=true,%
+            pdfstartview=FitH,%
+            breaklinks=true,%
+            colorlinks=true,%
+            %allcolors=black,%
+            citecolor=blue,
+            linkcolor=red,
+            pagebackref=true]{hyperref}
+
+% Functional Package
+\usepackage{enumerate}
+\usepackage{url}      % This package helps to typeset urls
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                    Mathematics                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathrsfs,upgreek}
+% Operators
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\e}{\mathrm{e}}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\plim}{plim}
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\gvec}[1]{{\boldsymbol{#1}}}
+
+\newcommand{\code}{\texttt}
+\newcommand{\bcode}[1]{\texttt{\blue{#1}}}
+\newcommand{\rcode}[1]{\texttt{\red{#1}}}
+\newcommand{\rtext}[1]{{\red{#1}}}
+\newcommand{\btext}[1]{{\blue{#1}}}
+
+% New Environments
+\newtheorem{result}{Result}
+\newtheorem{assumption}{Assumption}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\setlength{\unitlength}{1mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                 Tables and Figures                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{threeparttable,booktabs,multirow,array} % This allows notes in tables
+\usepackage{floatrow} % For Figure Notes
+\floatsetup[table]{capposition=top}
+\usepackage[font={sc,footnotesize}]{caption}
+\DeclareCaptionLabelSeparator{aer}{---}
+\captionsetup[table]{labelsep=aer}
+\captionsetup[figure]{labelsep=period}
+\usepackage{graphicx,pstricks,epstopdf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                 Insert Code Snippet                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings,textcomp,upquote}
+\lstset{
+     language=fortran,
+     frame = single,
+%     backgroundcolor=\color[RGB]{255,228,202}, % pink
+     backgroundcolor=\color[RGB]{231,240,233}, % green
+%     backgroundcolor=\color[RGB]{239,240,248},
+     framerule=0pt,
+     showstringspaces=false,
+     basicstyle=\ttfamily\footnotesize,
+     numbers=left,
+     stepnumber=1,
+     numberstyle=\tiny,
+     keywordstyle=\color{blue}\ttfamily,
+     stringstyle=\color{red}\ttfamily,
+     commentstyle=\color[rgb]{.133,.545,.133}\ttfamily,
+     morecomment=[l][\color{magenta}]{\#},
+     fontadjust,
+     captionpos=t,
+     framextopmargin=2pt,framexbottommargin=2pt,
+     abovecaptionskip=4ex,belowcaptionskip=3pt,
+     belowskip=3pt,
+     framexleftmargin=4pt,
+     xleftmargin=4em,xrightmargin=4em,
+     texcl=false,
+     extendedchars=false,columns=flexible,mathescape=true,
+     captionpos=b,
+}
+\renewcommand{\lstlistingname}{Source Code}
+
+\title{\vspace{-1cm}\Large{{\textsf{The ``Saving Glut'' Project}} \\ \textsf{Concepts, Empirical Tests and Model Assumptions}}}
+\author{\normalsize\textsc{Xin Tang} \\ \normalsize\textsc{International Monetary Fund}}
+\date{\normalsize\today}
+
+\begin{document}
+\maketitle
+
+This note records my thoughts over some important conceptual questions and preliminary explorations to some candidates for modelling assumptions. In Section \rom{1}, I discuss conceptually why the tatonnement method [\citet{AuerbachKotlikoff:1987book}], commonly used for solving the transition path of \citet{Aiyagari:1994} economies following a permanent and unexpected policy change, is ill-suited for answering our research question; and what can be answered with it. I then write down some empirical tests that I think could strengthen the credibility of our theory in Section \rom{2}. In Section \rom{3}, I explore how the model behaves with some variations to the entrepreneurs' problem.
+
+\section{Inappropriateness of the ``MIT Transition Path''}
+
+\textit{The Tatonnement Method and Its Applications.---}The tatonnement method initially proposed by \citet{AuerbachKotlikoff:1987book} to solve deterministic perfect foresight transition is widely used in solving similar deterministic perfect foresight transition in Aiyagari economies. The motivation of bringing transition path into the analysis is that the short-run welfare costs for agents to settle down to the new equilibrium could dominate the long-run welfare gains, and hence steady-state comparison ignoring this short-run transition could be misleading. In a nutshell, the idea is simply that it takes time for people to adjust, and that the adjustment could be very painful. Here at the Fund, we sometimes interpret the difference between the short-run and long-run effects being an approximation to the ``excess burden'' borne by the current generation. There are many papers out there taking this approach: \citet{DomeijHeathcote:2004}, \citet{Anagnostopoulosetal:2012}, \citet{Bakisetal:2015}, \citet{RohrsWinter:2017}, and my own work \citet{FiscalConsolidation:2019}.
+
+%Explain what is typically done in the literature with this type of exercise.
+The type of exercises usually done in the literature can be described as follows. Consider the simplest Aiyagari economy with lump-sum tax and government debt $B_0$. We would like to evaluate the welfare consequence of increasing the public debt to $B_1$. In a typical exercise, the economy is assumed to be at the steady state with $B = B_0$ until $t=0$. Importantly, all the agents in the economy until $t=0$ expects that the debt will forever be stay at $B_0$. Then at $t=1$, the government debt changes to $B = B_1$ permanently. Agents update their information such that $B = B_1$ from $t=1$ on, and further correctly anticipate all the related equilibrium prices in the future. They then behave according to the new information set. The solution concept is such that the actual realized path of the macroeconomy is exactly as that anticipated by the agents, hence the name \textit{deterministic perfect foresight transition}. The total welfare costs including the adjustment costs during the transition can then be computed accordingly. In most studies, the switch in the policy is once and for all. But this is not necessary. The same algorithm can be used in cases where $B$ changes from period to period as long as the whole sequence is known at $t=1$. For instance, \citet{RohrsWinter:2017} studies parametric paths of debt reduction.
+
+This solution concept works for the questions these papers ask, which are mostly about \textit{the macroeconomic and welfare consequences of certain changes in the policy}. It is inappropriate for our project, because what we want to explain is \textit{why government debt increases} as opposed to \textit{what are the consequences of such debt increase}. In our case, the debt sequence has to be solved endogenously from the model while in other cases, the policy sequences can just be exogenously measured and fed into the model. Despite this, I do think that we probably can recycle some of our previous \citet{AiyagariMcGrattan:1998} results and write a small paper on the welfare consequence of rising public debt in the presence of foreign saving glut. Here we can use the actual time path of the U.S. public debt and then compute the transition paths with and without foreign saving glut. By contrasting the results from the two exercises, we can analyze for instance, how rich and poor people are affected by external and domestic debt. I feel that it probably fits \textit{Economics Letters} if we link the paper to the old \citet{Diamond:1965} paper.
+
+\textit{Endogenous Debt Sequence.---}Compare our approach to that by \citet{Acikgozetal:2018}.
+
+\textit{A Side Note on \citet{Boppartetal:2018}.---}The tatonnement method connects very closely to the ``MIT Method'' by \citet{Boppartetal:2018} for solving Aiyagari economies with aggregate uncertainty. 
+
+\section{Recap on Our Research Question}
+
+Empirical test: \citet{RajanZingales:1998} exercise.
+
+\section{Some Alternatives to the Entrepreneurs' Problem}
+
+\bibliography{D:/Dissertation/Literature/Dissertation1}
+\bibliographystyle{aea}
+\bibliographystyle{apacite}
+
+\end{document}
