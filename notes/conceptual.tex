@@ -163,15 +163,41 @@ The type of exercises usually done in the literature can be described as follows
 
 This solution concept works for the questions these papers ask, which are mostly about \textit{the macroeconomic and welfare consequences of certain changes in the policy}. It is inappropriate for our project, because what we want to explain is \textit{why government debt increases} as opposed to \textit{what are the consequences of such debt increase}. In our case, the debt sequence has to be solved endogenously from the model while in other cases, the policy sequences can just be exogenously measured and fed into the model. Despite this, I do think that we probably can recycle some of our previous \citet{AiyagariMcGrattan:1998} results and write a small paper on the welfare consequence of rising public debt in the presence of foreign saving glut. Here we can use the actual time path of the U.S. public debt and then compute the transition paths with and without foreign saving glut. By contrasting the results from the two exercises, we can analyze for instance, how rich and poor people are affected by external and domestic debt. I feel that it probably fits \textit{Economics Letters} if we link the paper to the old \citet{Diamond:1965} paper.
 
-\textit{Endogenous Debt Sequence.---}Compare our approach to that by \citet{Acikgozetal:2018}.
+\textit{Endogenous Debt Sequence.---}Relatedly, \citet{Acikgozetal:2018} provides a framework where the optimal Ramsey debt sequence is solved. Mathematically, apart from other modeling details, the difference between our approach and theirs would therefore be time-consistency versus Ramsey. But from the point of view of answering our research question, it is more about \textit{conceptually, is the time-consistent or the Ramsey solution a better approximation to how the U.S. government sets the debt level}? Well it is plausible that a government announces that a tax reform will keep the tax rate fixed at certain level for a extended period time, I find it less compelling that debt level is determined in this way. Maybe we can provide some anecdotal evidence to support our time-consistent assumption.
 
-\textit{A Side Note on \citet{Boppartetal:2018}.---}The tatonnement method connects very closely to the ``MIT Method'' by \citet{Boppartetal:2018} for solving Aiyagari economies with aggregate uncertainty. 
+\textit{A Side Note on \citet{Boppartetal:2018}.---}The tatonnement method connects very closely to the ``MIT Method'' by \citet{Boppartetal:2018} for solving Aiyagari economies with aggregate uncertainty. The basic idea is to first perturb the economy with an innovation, and use the tatonnement method to compute the nonlinear transition path after the shock. This deterministic nonlinear path is then used as approximation to how the economy evolves after an aggregate shock. For instance, assume that the aggregate TFP follows an AR(1) process:
+\begin{equation*}
+    A_{t+1} = \rho A_t + \varepsilon_{t+1}.
+\end{equation*}
+Then an innovation $\varepsilon$ generates a sequence variation in $\{A_t\}$ which equals to $\{\varepsilon, \rho \varepsilon, \rho^2 \varepsilon, \cdots\}$. Since the sequence is \textit{deterministic}, a transition path following this shock can be readily solved using the tantonnement method. The behavior of the economy after a more complex sequence of shocks are thus simulated by adding such individual nonlinear responses linearly.
+
+I think this is a very convenient method to approximate an Aiyagari economy with aggregate uncertainty, but it is not designed for our question here. The problems that the method aims to solve should have two key features: uncertainty and localness. Neither is the case for us.
 
 \section{Recap on Our Research Question}
 
-Empirical test: \citet{RajanZingales:1998} exercise.
+At a more granular level, our research question is actually \textit{how much quantitatively does the global saving glut increase the quantity of U.S. public debt used for providing safe assets for the entrepreneurs}? There is some subtle but nonetheless important quantitative difference between the overall increase in public debt and the increase in public debt out used in a particular way. I think empirically, we need to show some evidence that firms are in fact buying more treasury bills for liquidity purposes. One crude way to do this is the \citet{RajanZingales:1998}. We can look for whether in the data, firms in sectors that have heavier external financial needs are indeed buying more public debt compared to sectors that are less externally dependent.
+
+Similarly, since during the periods where $B_{t}$ increases substantially, in our model the government will be transferring increasing amount of money to the workers; this is an implication of the model that can be directly bring to the data as well. In fact, just as in your AER paper, there is an ``inequality'' in the title, a more (or perhaps less?) ambitious way to formulate our research question would be something like ``Financial Globalization, Redistribution, and the Rising Public Debt.'' In this sense, our model provides a quantitative evaluation of how financial globalization simultaneously drives the increase in short-run social spending, firms borrowing and public debt. Infinite horizon is crucial here. In the two-period model, the government is balancing the cost-benefits of transferring money from period 2 to period 1, while in the infinite horizon problem, from the perspective of the workers, the government is weighting short-run more transfers against long-run more tax, with the later lasting for an infinite period of time. This means that in our model, even the government knows that by issuing more debt for more transfers in the short-run, the workers have to bear more taxation in the long-run, it nevertheless still finds it optimal to do so. But I think this probably depends on the relative weight on workers $\Phi$. If the government puts zero weight on the entrepreneurs, my guess is that in the long-run the government would probably want to have net savings?
 
 \section{Some Alternatives to the Entrepreneurs' Problem}
+
+In this section, I am exploring some variations to the model setting to see the implied firm size distribution and whether analytical tractability can still be retained.
+
+According to \citet{Moll:2014}, the major issue with i.i.d shock is that the transition would be very fast.
+
+\subsection{Firm Size Distribution of the Original Setting}
+
+\subsection{CRS with Linear Borrowing Constraints}
+
+This is the assumption taken by \citet{Moll:2014} and \citet{ItskhokiMoll:2019}. The type of borrowing constraints used by \citet{Bueraetal:2011} and \citet{Bueraetal:2013} are not analytically tractable.
+
+\subsection{DRS with Linear Borrowing Constraints but Different Timing}
+
+According to \citet{BueraShin:2013}, \citet{Moll:2014}, and \citet{ItskhokiMoll:2019}, DRS will kill analytical tractability.
+
+\subsection{Dynamic Lucas with No Borrowing Constraints}
+
+
 
 \bibliography{D:/Dissertation/Literature/Dissertation1}
 \bibliographystyle{aea}

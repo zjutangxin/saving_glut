@@ -3,6 +3,7 @@ notes/*.*
 !notes/*.pdf
 bin/*.*
 obj/*.*
+results/**/*.*
 results/*.*
 *.out
 *.mod
