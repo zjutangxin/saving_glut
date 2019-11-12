@@ -37,6 +37,7 @@ subroutine SolveSystem(t,b1,b1pr,retval)
     real(dp) :: alfa_t, eta_t
     integer :: indz
 
+    ! TODO: here the last period should be treated separately
     be1 = wgt1*b1 - d_foreign
     be1pr = wgt1*b1pr - d_foreign
 

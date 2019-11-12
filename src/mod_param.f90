@@ -34,7 +34,6 @@ module parameter
     real(dp), parameter :: zmax = 2.0_dp*zbar - zmin        
     real(dp), parameter :: wbar = (1-theta)*zbar**theta
     real(dp), parameter :: wgt1 = 0.796_dp
-    real(dp), parameter :: sbar = 0.5_dp
     real(dp), parameter :: surv_rate = 0.975_dp
     real(dp), parameter :: rbar = 0.03_dp
     real(dp), parameter :: bbeta = surv_rate/(1+rbar) 
@@ -42,8 +41,8 @@ module parameter
 
     real(dp), parameter :: d_foreign = 0.0_dp
 
-    integer, parameter :: nb = 20, maxGrid = 200
-    integer, parameter :: nt = 5
+    integer, parameter :: nb = 40, maxGrid = 400
+    integer, parameter :: nt = 50
 
     integer, parameter :: nz = 21
 
