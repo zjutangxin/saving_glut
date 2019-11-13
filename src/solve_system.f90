@@ -37,9 +37,12 @@ subroutine SolveSystem(t,b1,b1pr,retval)
     real(dp) :: alfa_t, eta_t
     integer :: indz
 
-    ! TODO: here the last period should be treated separately
     be1 = wgt1*b1 - d_foreign
-    be1pr = wgt1*b1pr - d_foreign
+    if (t == nT) then
+        be1pr = wgt1*b1pr
+    else
+        be1pr = wgt1*b1pr - d_foreign
+    end if
 
     alfa_t = (1.0_dp-bbeta**(nT-t+1))/(1.0_dp-bbeta)
     eta_t  = (bbeta-bbeta**(nT-t+1))/(1.0_dp-bbeta**(nT-t+1))
@@ -69,8 +72,13 @@ subroutine SolveSystem(t,b1,b1pr,retval)
     c1_w = wbar+wgt1*(b1pr/R1-b1)
     U1_w = log(max(c1_w,x_min))
     
-    V1wpr = FFindInt(b1pr,bVec,v1wMx,Nb)
-    V1epr = FFindInt(b1pr,bVec,v1eMx,Nb)    
+    if (t == nT) then
+        v1wpr = 0.0_dp
+        v1epr = 0.0_dp
+    else
+        V1wpr = FFindInt(b1pr,bVec,v1wMx,Nb)
+        V1epr = FFindInt(b1pr,bVec,v1eMx,Nb)    
+    endif
 
     !----CHECK IF PRICES ARE POSITIVE----!
     if (p1 < 0) then

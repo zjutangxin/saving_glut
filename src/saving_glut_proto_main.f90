@@ -50,8 +50,8 @@ program saving_glut_gov_main
     pzvec = 1.0_dp/real(nz)
     pzvec = pzvec/sum(pzvec)
 
-    bmin = 0.0_dp
-    ! bmin = d_foreign/wgt1+0.001_dp
+    ! bmin = 0.0_dp
+    bmin = d_foreign/wgt1
     bmax = bmin+0.8_dp
     ! bmax = min(bmax,0.99_dp)
 
